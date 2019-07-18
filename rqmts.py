@@ -1,4 +1,4 @@
-import subprocess
+import os, subprocess
 
 def query(qry, data):
  for pkg in data:
@@ -26,9 +26,12 @@ def parse_modules(code):
             print(item)
     return modules
 
+file_path = input("Enter path of the python script : ")
+dir_path = os.path.dirname(file_path)
+with open(file_path, 'r') as f:
+    code = f.read()
+    f.close()
 
-f=open('{}'.format(input("Enter the name of the python file : ")), 'r')
-code = f.read()
 requirements_list = []
 data = subprocess.getoutput("pip freeze").split()
 
@@ -39,4 +42,12 @@ for i in parse_modules(code):
     except:
         print("`{}` is a system package.".format(i))
 
-print(requirements_list)
+print("[+] Success: Parsed the dependencies correctly")
+print("[*] Saving generated requirements.txt")
+REQS_PATH = dir_path + "\\requirements.txt"
+with open(REQS_PATH, 'w') as g:
+    for req in requirements_list:
+        g.write(req + '\n')
+    f.close()
+print("[+] Success: requirements.txt saved")
+print("[+] Path where it can be found: {}".format(REQS_PATH))
