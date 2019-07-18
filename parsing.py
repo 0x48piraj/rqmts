@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 
-def query(qry, data):
+import subprocess
+
+def call(query):
+    return subprocess.getoutput(query)
+
+def check(qry, data):
  for pkg in data:
      if qry in pkg:
          return pkg
 
-def parse_modules(code):
+def parse(code):
     modules = []
     code = code.splitlines()
     for item in code:
