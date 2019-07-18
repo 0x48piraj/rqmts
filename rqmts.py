@@ -1,13 +1,46 @@
 #!/usr/bin/env python3
 
-import os, sys, argparse
+import os, sys, argparse, textwrap
 from parsing import check, parse, call
 
-parser = argparse.ArgumentParser(description='rqmts - Generate pip requirements.txt file for any project')
-parser.add_argument("-p", "--path", dest="path", metavar="FILE", default=False, help= "Path of the Python script (inside quotation marks)")
+banner = textwrap.dedent('''\
+    .===================================================================.
+    ||      rqmts - Generate pip requirements.txt for any project      ||
+    ||                                                                 ||
+    ||                                                                 ||
+    ||                            ___                                  ||
+    ||                          .'   '.              requirements.txt  ||
+    ||                         / rqmts \           oOoOo.              ||
+    ||                        |    |    |       ,==|||||o.             ||
+    ||                         \  pip  /       _|| |||||o. pip         ||
+    ||                          '.___.'    _.-'^|| |||||               ||
+    ||                        __/_______.-'     '==rqmts               ||
+    ||                   _.-'` /                   """""               ||
+    ||                .-'     /   oOoOo.                               ||
+    ||                `-._   / ,==|||||o.                              ||
+    ||                    '-/._|| |||||o. python                       ||
+    ||                     /  ^|| |||||                                ||
+    ||                    /    '==rqmts                                ||
+    ||                   /________"""""                                ||
+    ||                   `\       `\                                   ||
+    ||                     \        `\                                 ||
+    ||                      \         `\                               ||
+    ||                      /           /                              ||
+    ||                     /           /                               ||
+    ||        @0x48piraj  /_____      /_____                           ||
+    ||                                                                 ||
+    '==================================================================='
+    ''')
+
+parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=banner)
+
+optional = parser._action_groups.pop() # popped opt args
+optional = parser.add_argument_group('Options')
+optional.add_argument("-p", "--path", dest="path", metavar="FILE", default=False, help= "Path of the Python script (inside quotation marks)")
 
 file_path = parser.parse_args().path
 if file_path == False:
+    print(banner)
     print("[*] Path not provided, invoking interactive mode ...")
     file_path = input("Enter the path of Python script : ")
 
