@@ -4,9 +4,7 @@ import os, sys, argparse
 from parsing import check, parse, call
 
 parser = argparse.ArgumentParser(description='rqmts - Generate pip requirements.txt file for any project')
-#optional = parser._action_groups.pop() # popped opt args
-#optional = parser.add_argument_group('Parameters')
-parser.add_argument("-p", "--path", dest="path", default=False, help= "Path of the Python script")
+parser.add_argument("-p", "--path", dest="path", metavar="FILE", default=False, help= "Path of the Python script (inside quotation marks)")
 
 file_path = parser.parse_args().path
 if file_path == False:
