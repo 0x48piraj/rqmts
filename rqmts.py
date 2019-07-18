@@ -38,13 +38,5 @@ for i in parse_modules(code):
         requirements_list.append(query(pkg_info.split("Name: ")[1].split('\nVersion:')[0], data))
     except:
         print("`{}` is a system package.".format(i))
-"""
-if os.name == "nt": # import platform;platform.system() == "Windows";from sys import platform as _platform;print(_platform)
-    for i in parse_modules(code):
-        requirements_list.append(subprocess.getoutput("pip freeze | findstr {}".format(i)))
 
-else:
-    for i in parse_modules(code):
-        requirements_list.append(subprocess.getoutput("pip freeze | grep {}".format(i)))
-"""
 print(requirements_list)
