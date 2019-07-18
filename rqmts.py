@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
+
 import os, sys, subprocess
 from parsing import query, parse_modules
 
 file_path = input("Enter path of the python script : ")
-
 if os.path.exists(file_path):
  dir_path = os.path.dirname(file_path)
  with open(file_path, 'r') as f:

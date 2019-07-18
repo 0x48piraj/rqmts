@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 def query(qry, data):
  for pkg in data:
      if qry in pkg:
