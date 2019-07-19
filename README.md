@@ -17,7 +17,7 @@ It does not requires any dependency (works out-of-the-box), not needs internet t
 ### Questions
 
 - **Why not just use pip's freeze command** to generate a `requirements.txt` file for my project ?
-- Why to **re-invent the wheel** when there are modules such as **pipreqs**, **pigar** already present ?
+- Why to **re-invent the wheel** when there are modules such as **pipreqs**, **pigar**, **poetry** already present ?
 - Why not manually ?
 
 ### Answers
@@ -30,7 +30,8 @@ It does not requires any dependency (works out-of-the-box), not needs internet t
    * I found this repository and thought, _"Hmm.. I think I can simply this problem while trying to match **pipreqs** results"_
    * **pigar** queries pypi servers, big no-no. Ideally, it should be local. _(on fallback? then maybe ..)_
    * Other than that, **pigar** recommends using Pipenv ([pipenv has serious issues](https://news.ycombinator.com/item?id=18612590))
-   * Sheer curiousity. _"I wonder if I can create a project that has potential of thosands of stars and most importantly, hundreds of contributors under 24 hours"_
+   * **poetry** quotes "Be aware, however, that it will also install poetry's dependencies which might cause conflicts."
+   * Sheer curiousity. _"can I create a project that has potential of collecting thosands of stars and most importantly, hundreds of contributors?"_
 * Manually ?
    * _Are you serious right now ?_
 
