@@ -1,14 +1,14 @@
-# rqmts
+# Rqmts
 
 <p align="center">
-<b>rqmts - Generate pip requirements.txt file for any project by analysing package imports</b><br><br>
+<b>Rqmts - Generate pip requirements.txt file for any project by analysing package imports</b><br><br>
 Click <a href="https://youtube.com/">here</a> to see the demo.<br>
   Click <a href="https://github.com/0x48piraj/rqmts/wiki">here</a> for documentation.<br><br>
 </p>
 
 ## About the project
 
-**rqmts** is a fantastic stand-alone tool which generates pip `requirements.txt` file for any project by analysing package imports.
+**Rqmts** is a fantastic stand-alone tool which generates pip `requirements.txt` file for any project by analysing package imports.
 
 It does not requires any dependency (works out-of-the-box), not needs internet to work _(is completely offline, upto this moment)_, nor uses regular expressions in such a violent way as existing projects do. Instead, it uses simple heuristic techniques and parse conditional trees, which is a better method for extracting imported names from statements, functions, etc.
 
@@ -36,9 +36,19 @@ It does not requires any dependency (works out-of-the-box), not needs internet t
 
 ## Installation
 
+**Rqmts** provides a custom script that will run a **rqmts instance** isolated from the rest of your system by using file-less/memory-based execution. This is the recommended way of running Rqmts.
+
+```
+curl -sSL https://raw.githubusercontent.com/0x48piraj/rqmts/master/Rqmts.py | python
+```
+
+Alternatively, you can download `Rqmts.py` from the root directory and execute it separately.
+
+Using **pip** to install [rqmts](https://pypi.org/project/rqmts/) is also possible.
+
 ```
 pip install --user rqmts (windows)
-pip3 install rqmts (linux)
+pip3 install rqmts       (linux)
 ```
 
 ## Usage
@@ -80,7 +90,7 @@ Options:
   -p FILE, --path FILE  Path of the Python script (inside quotation marks)
 
 --REDACTED--
-C:\Users\Dell\Desktop\Manipal University Github\FINAL\gen\rqmts>py -m rqmts -p "C:\test_proj\run.py"
+C:\rqmts>py -m rqmts -p "C:\test_proj\run.py"
 
 --REDATED--
 
@@ -158,8 +168,8 @@ and these quirks make this project interesting. There's a funny comment in the s
 
 This project aims to combine the best existing strategies to cover the broadest possible set of cases _(if not all)_. The project was built keeping in mind the modular programming paradigms and so other than being readable it's easily extensible making it possible to add new strategies/algorithms quickly.
 
-If you have any issues or suggestions, please do not hesitate to [open an issue](https://github.com/0x48piraj/rqmts/issues/new) or a [pull request](https://github.com/0x48piraj/rqmts/pulls)!
+If you have any issues or suggestions, please do not hesitate to **[open an issue](https://github.com/0x48piraj/rqmts/issues/new)** or a **[pull request](https://github.com/0x48piraj/rqmts/pulls)**!
 
 ## License
 
-This software is licensed under BSD 3-Clause "New" or "Revised" License. To view a copy of this license, visit [BSD 3-Clause](LICENSE).
+This software is licensed under **BSD 3-Clause "New" or "Revised" License**. To view a copy of this license, visit **[BSD 3-Clause](LICENSE)**.
