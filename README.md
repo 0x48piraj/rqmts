@@ -8,9 +8,9 @@ Click <a href="https://youtube.com/">here</a> to see the demo.<br>
 
 ## About the project
 
-**rqmts** is a fantastic tool which generates pip `requirements.txt` file for any project by analysing package imports.
+**rqmts** is a fantastic stand-alone tool which generates pip `requirements.txt` file for any project by analysing package imports.
 
-It does not need internet to work, is completely offline _(upto this moment)_. It does not use regular expressions in such a violent way as existing projects do. Instead, it uses simple heuristic techniques and parse conditional trees, which is a better method for extracting imported names from statements, functions, etc.
+It does not requires any dependency (works out-of-the-box), not needs internet to work _(is completely offline, upto this moment)_, nor uses regular expressions in such a violent way as existing projects do. Instead, it uses simple heuristic techniques and parse conditional trees, which is a better method for extracting imported names from statements, functions, etc.
 
 ## Why this project
 
@@ -33,6 +33,12 @@ It does not need internet to work, is completely offline _(upto this moment)_. I
    * Sheer curiousity. _"I wonder if I can create a project that has potential of thosands of stars and most importantly, hundreds of contributors under 24 hours"_
 * Manually ?
    * _Are you serious right now ?_
+
+## Installation
+
+```
+pip install --user rqmts
+```
 
 ## Contribute
 
