@@ -23,7 +23,7 @@ setup(
     author_email="piyush@linuxmail.org",
     license="BSD-3",
     classifiers=[
-        "License :: OSI Approved :: BSD-3-Clause License",
+        "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",

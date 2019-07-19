@@ -16,7 +16,7 @@ It does not requires any dependency (works out-of-the-box), not needs internet t
 
 ### Questions
 
-- **Why not just use pip’s freeze command** to generate a `requirements.txt` file for my project ?
+- **Why not just use pip's freeze command** to generate a `requirements.txt` file for my project ?
 - Why to **re-invent the wheel** when there are modules such as **pipreqs**, **pigar** already present ?
 - Why not manually ?
 
