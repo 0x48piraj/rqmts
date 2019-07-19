@@ -33,16 +33,16 @@ banner = textwrap.dedent('''\
     ''')
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=banner)
-
 optional = parser._action_groups.pop() # popped opt args
 optional = parser.add_argument_group('Options')
 optional.add_argument("-p", "--path", dest="path", metavar="FILE", default=False, help= "Path of the Python script (inside quotation marks)")
 
 file_path = parser.parse_args().path
+print(banner)
 if file_path == False:
-    print(banner)
     print("[*] Path not provided, invoking interactive mode ...")
-    file_path = input("Enter the path of Python script : ")
+    print("[*] Enter the path of Python script")
+    file_path = input("    ----> ")
 
 if os.path.exists(file_path):
  dir_path = os.path.dirname(file_path)

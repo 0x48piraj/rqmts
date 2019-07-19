@@ -29,4 +29,4 @@ def parse(code):
             modules = modules+item
         else:
             print(item)
-    return modules
+    return list(set(modules))
