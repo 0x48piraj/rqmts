@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os, sys, argparse, textwrap
-from parsing import check, parse, call
+from parsing import parse, fetch, _import
 
 banner = textwrap.dedent('''\
     .===================================================================.
@@ -58,20 +58,22 @@ else:
  sys.exit(1)
 
 requirements_list = []
-pfreeze_cmd = "pip freeze"
-pshow_cmd = "pip show {}"
 REQS_PATH = dir_path + "\\requirements.txt"
-INSTALLED_PKGS = call(pfreeze_cmd).split()
 PARSED_PKG_LIST = parse(code)
-
+modules = _import(PARSED_PKG_LIST) # must run w/o errors or you've some fucked up imports
 for package in PARSED_PKG_LIST:
-    pkg_info = call(pshow_cmd.format(package))
     try:
-        pkg_query = pkg_info.split("Name: ")[1].split('\nVersion:')[0]
-        result = check(pkg_query, INSTALLED_PKGS)
+        # Unfortunately, fetch() can error out too as name in the package index is independent of the module name we import
+        pkg_name, version = fetch(package) # pkg.__version__ sucks, because we suck (PEP 0396)
+        result = pkg_name + '==' + version
         requirements_list.append(result)
-    except:
-        print("[!] System package found : %s" % package)
+    except Exception as e:
+        if e.__class__.__name__ == "ModuleNotFoundError":
+            print("[!] ERROR: {} !(valid || installed)".format(package))
+        elif e.__class__.__name__ == "DistributionNotFound":
+            # hacky patch
+            # pkg_name, version = fetch(dir(package)[0]) # works on pymouse, strgen
+            print("[!] System package found :", package)
 
 print("[+] Success: Parsed the dependencies correctly")
 print("[*] Saving generated requirements.txt")
@@ -82,4 +84,4 @@ with open(REQS_PATH, 'w') as g:
     g.close()
 
 print("[+] Success: requirements.txt saved")
-print("[+] Path where it can be found: {}".format(REQS_PATH))
+print("[+] Path where it can be found: %s" % (REQS_PATH))

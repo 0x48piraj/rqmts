@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 
-import subprocess
+import pkg_resources
 
-def call(query):
-    return subprocess.getoutput(query)
+def _import(imports):
+ modules = {}
+ for module in imports:
+    try:
+        modules[module] = __import__(module)
+    except ImportError:
+        print ("Error importing", module)
+ return modules
 
-def check(qry, data):
- for pkg in data:
-     if qry in pkg:
-         return pkg
+def fetch(package):
+ return pkg_resources.get_distribution(package).project_name, pkg_resources.get_distribution(package).version
 
 def parse(code):
     modules = []
