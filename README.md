@@ -1,7 +1,7 @@
 # rqmts
 
 <p align="center">
-<b>rqmts - Generate pip requirements.txt file for any project by analysing package imports<br><br>
+<b>rqmts - Generate pip requirements.txt file for any project by analysing package imports</b><br><br>
 Click <a href="https://youtube.com/">here</a> to see the demo.<br>
   Click <a href="https://github.com/0x48piraj/rqmts/wiki">here</a> for documentation.<br><br>
 </p>
@@ -10,7 +10,7 @@ Click <a href="https://youtube.com/">here</a> to see the demo.<br>
 
 **rqmts** is a fantastic tool which generates pip `requirements.txt` file for any project by analysing package imports.
 
-It does not uses internet to work, and is completely offline _(upto this moment)_. It does not use regular expressions in such a violent way as existing projects do. Instead, it uses simple heuristic techniques and parse conditional trees, which is a better method for extracting imported names from statements, functions, etc.
+It does not need internet to work, is completely offline _(upto this moment)_. It does not use regular expressions in such a violent way as existing projects do. Instead, it uses simple heuristic techniques and parse conditional trees, which is a better method for extracting imported names from statements, functions, etc.
 
 ## Why this project
 
@@ -52,3 +52,7 @@ and these quirks make this project interesting. There's a funny comment in the s
 This project aims to combine the best existing strategies to cover the broadest possible set of cases _(if not all)_. The project was built keeping in mind the modular programming paradigms and so other than being readable it's easily extensible making it possible to add new strategies/algorithms quickly.
 
 If you have any issues or suggestions, please do not hesitate to [open an issue](https://github.com/0x48piraj/rqmts/issues/new) or a [pull request](https://github.com/0x48piraj/rqmts/pulls)!
+
+## License
+
+This software is licensed under BSD 3-Clause "New" or "Revised" License. To view a copy of this license, visit [BSD 3-Clause](LICENSE).
