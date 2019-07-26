@@ -2,8 +2,9 @@
 
 <p align="center">
 <b>Rqmts - Generate pip requirements.txt file for any project by analysing package imports</b><br><br>
-Click <a href="https://youtube.com/">here</a> to see the demo.<br>
-  Click <a href="https://github.com/0x48piraj/rqmts/wiki">here</a> for documentation.<br><br>
+    <img alt="Rqmts logo" src="https://i.imgur.com/czbQOUj.png">
+<b>Click <a href="https://youtube.com/">here</a> to see the demo.<br>
+  Click <a href="https://github.com/0x48piraj/rqmts/wiki">here</a> for documentation.<br><br></b>
 </p>
 
 ## About the project
