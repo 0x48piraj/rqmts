@@ -33,7 +33,7 @@ def parse(code):
             item = item[7:].split(", ")
             modules = modules+item
         else:
-            print(item)
+            pass
     return list(set(modules))
 
 banner = textwrap.dedent('''\

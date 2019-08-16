@@ -1,15 +1,15 @@
 # Rqmts
 
 <p align="center">
-<b>Rqmts - Generate pip requirements.txt file for any project by analysing package imports</b><br><br>
-    <img alt="Rqmts logo" src="https://i.imgur.com/czbQOUj.png">
+<b>Rqmts - Generate requirements.txt file for any project by analysing package imports</b><br><br>
+    <img alt="Rqmts logo" src="https://i.imgur.com/czbQOUj.png" width="400"><br>
 <b>Click <a href="https://youtube.com/">here</a> to see the demo.<br>
   Click <a href="https://github.com/0x48piraj/rqmts/wiki">here</a> for documentation.<br><br></b>
 </p>
 
 ## About the project
 
-**Rqmts** is a fantastic stand-alone tool which generates pip `requirements.txt` file for any project by analysing package imports.
+**Rqmts** is a fantastic stand-alone tool which generates `requirements.txt` file for any project by analysing package imports.
 
 It does not requires any dependency (works out-of-the-box), not needs internet to work _(is completely offline, upto this moment)_, nor uses regular expressions in such a violent way as existing projects do. Instead, it uses simple heuristic techniques and parse conditional trees, which is a better method for extracting imported names from statements, functions, etc.
 
@@ -106,7 +106,6 @@ C:\rqmts>py -m rqmts -p "C:\test_proj\run.py"
 [+] Success: requirements.txt saved
 [+] Path where it can be found: C:\test_proj\requirements.txt
 ```
-
 
 #### Interactive mode
 
