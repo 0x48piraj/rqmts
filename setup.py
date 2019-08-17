@@ -1,11 +1,12 @@
-"""Setup script for rqmts"""
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import os.path
 from setuptools import setup, find_packages
 
-# current directory
-pwd = os.path.abspath(os.path.dirname(__file__))
+"""Setup script for rqmts"""
 
+pwd = os.path.abspath(os.path.dirname(__file__))
 # README file
 with open(os.path.join(pwd, "README.md")) as f:
     README = f.read()
