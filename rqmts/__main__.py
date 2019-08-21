@@ -71,7 +71,9 @@ def main():
 	if file_path == False:
 	    print(style.YELLOW("[*] Path not provided, invoking interactive mode ..."))
 	    print("[*] Enter the path of Python script" + style.RESET(''))
-	    file_path = input(style.GREEN("    ----> ") + style.RESET(''))
+	    file_path = input(style.GREEN("    ----> ") + style.RESET('')).strip()
+	else:
+	    file_path = file_path.strip()
 
 	if os.path.exists(file_path):
 	 dir_path = os.path.dirname(file_path)
