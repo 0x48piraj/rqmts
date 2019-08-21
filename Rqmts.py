@@ -81,10 +81,10 @@ banner = textwrap.dedent('''\
     '==================================================================='
     ''')
 
-parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=style.GREEN(banner) + style.RESET(''))
+parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=style.GREEN(banner) + style.RESET(''), usage=style.GREEN("rqmts ") + style.YELLOW("[-h] [-p '{}']").format(style.UNDERLINE("/path/to/file") + style.RESET('') + style.YELLOW('')) + style.RESET(''))
 optional = parser._action_groups.pop() # popped default opt args
 optional = parser.add_argument_group('Options')
-optional.add_argument("-p", "--path", dest="path", metavar=style.CYAN("/path/to/file") + style.RESET(''), default=False, help= style.GREEN("Python script path (inside quotation marks)") + style.RESET(''))
+optional.add_argument("-p", "--path", dest="path", metavar=style.CYAN("'/path/to/file'") + style.RESET(''), default=False, help= style.GREEN("Python script path (inside quotation marks)") + style.RESET(''))
 
 file_path = parser.parse_args().path
 print(style.GREEN(banner) + style.RESET(''))
