@@ -1,5 +1,11 @@
 # Rqmts
 
+[![PyPI Download/Month](https://img.shields.io/pypi/dm/rqmts.svg)](https://pypi.python.org/pypi/rqmts/)
+[![PyPI Version](https://img.shields.io/pypi/v/rqmts.svg)](https://pypi.python.org/pypi/rqmts/)
+[![PyPI license](https://img.shields.io/pypi/l/rqmts.svg)](https://pypi.python.org/pypi/rqmts/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/rqmts.svg)](https://pypi.python.org/pypi/rqmts/)
+[![PyPI implementation](https://img.shields.io/pypi/implementation/rqmts.svg)](https://pypi.python.org/pypi/rqmts/)
+
 <p align="center">
 <b>Rqmts - Generate requirements.txt file for any project by analysing package imports</b><br><br>
     <img alt="Rqmts logo" src="https://i.imgur.com/czbQOUj.png" width="400"><br>
