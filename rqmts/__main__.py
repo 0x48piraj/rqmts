@@ -5,6 +5,33 @@ import os, sys, argparse, textwrap
 from .parsing import parse, fetch, _import
 
 def main():
+	if sys.platform.lower() == "win32":
+	    os.system('color')
+	  # Group of Different functions for different styles
+	    class style():
+	        BLACK = lambda x: '\033[30m' + str(x)
+	        RED = lambda x: '\033[31m' + str(x)
+	        GREEN = lambda x: '\033[32m' + str(x)
+	        YELLOW = lambda x: '\033[33m' + str(x)
+	        BLUE = lambda x: '\033[34m' + str(x)
+	        MAGENTA = lambda x: '\033[35m' + str(x)
+	        CYAN = lambda x: '\033[36m' + str(x)
+	        WHITE = lambda x: '\033[37m' + str(x)
+	        UNDERLINE = lambda x: '\033[4m' + str(x)
+	        RESET = lambda x: '\033[0m' + str(x)
+	else:
+	    class style():
+	        BLACK = ""
+	        RED = ""
+	        GREEN = ""
+	        YELLOW = ""
+	        BLUE = ""
+	        MAGENTA = ""
+	        CYAN = ""
+	        WHITE = ""
+	        UNDERLINE = ""
+	        RESET = ""
+
 	banner = textwrap.dedent('''\
 	    .===================================================================.
 	    ||      rqmts - Generate pip requirements.txt for any project      ||
@@ -29,22 +56,22 @@ def main():
 	    ||                      \         `\                               ||
 	    ||                      /           /                              ||
 	    ||                     /           /                               ||
-	    ||        @0x48piraj  /_____      /_____                           ||
+	    ||     [>] @0x48piraj /_____      /_____                           ||
 	    ||                                                                 ||
 	    '==================================================================='
 	    ''')
 
-	parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=banner)
+	parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=style.GREEN(banner) + style.RESET(''))
 	optional = parser._action_groups.pop() # popped opt args
 	optional = parser.add_argument_group('Options')
-	optional.add_argument("-p", "--path", dest="path", metavar="FILE", default=False, help= "Path of the Python script (inside quotation marks)")
+	optional.add_argument("-p", "--path", dest="path", metavar=style.CYAN("/path/to/file") + style.RESET(''), default=False, help= style.GREEN("Python script path (inside quotation marks)") + style.RESET(''))
 
 	file_path = parser.parse_args().path
-	print(banner)
+	print(style.GREEN(banner) + style.RESET(''))
 	if file_path == False:
-	    print("[*] Path not provided, invoking interactive mode ...")
-	    print("[*] Enter the path of Python script")
-	    file_path = input("    ----> ")
+	    print(style.YELLOW("[*] Path not provided, invoking interactive mode ..."))
+	    print("[*] Enter the path of Python script" + style.RESET(''))
+	    file_path = input(style.GREEN("    ----> ") + style.RESET(''))
 
 	if os.path.exists(file_path):
 	 dir_path = os.path.dirname(file_path)
@@ -53,10 +80,10 @@ def main():
 	        code = f.read()
 	        f.close()
 	    except:
-	        print("[-] File failed to load. Exiting ...")
+	        print(style.RED("[-] File failed to load. Exiting ...") + style.RESET(''))
 	        sys.exit(1)
 	else:
-	 print("[-] Invalid path. Exiting ...")
+	 print(style.RED("[-] Invalid path. Exiting ...") + style.RESET(''))
 	 sys.exit(1)
 
 	requirements_list = []
@@ -75,18 +102,18 @@ def main():
 	        elif e.__class__.__name__ == "DistributionNotFound":
 	            # hacky patch
 	            # pkg_name, version = fetch(dir(package)[0]) # works on pymouse, strgen
-	            print("[!] System package found :", package)
+	            print(style.RED("[!] System package found :"), style.CYAN(style.UNDERLINE(package)) + style.RESET(''))
 
-	print("[+] Success: Parsed the dependencies correctly")
-	print("[*] Saving generated requirements.txt")
+	print(style.GREEN("[+] Success: Parsed all the dependencies") + style.RESET(''))
+	print(style.YELLOW("[*] Saving generated ") + style.UNDERLINE("requirements.txt") + style.RESET(''))
 
 	with open(REQS_PATH, 'w') as g:
 	    for req in requirements_list:
 	        g.write(req + '\n')
 	    g.close()
 
-	print("[+] Success: requirements.txt saved")
-	print("[+] Path where it can be found: %s" % (REQS_PATH))
+	print(style.GREEN("[+] Success: ") + style.GREEN(style.UNDERLINE("requirements.txt")) + style.RESET('') + style.GREEN(" saved") + style.RESET(''))
+	print(style.GREEN("[+] Path where it can be found: %s") % (style.GREEN(style.UNDERLINE(REQS_PATH))) + style.RESET(''))
 
 if __name__ == "__main__":
     main()
