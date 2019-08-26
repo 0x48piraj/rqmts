@@ -113,7 +113,7 @@ C:\rqmts>py -m rqmts -p "C:\test_proj\run.py"
 [+] Path where it can be found: C:\test_proj\requirements.txt
 
 ```
-
+[ ](ezgif-3-9a572478638c.gif)
 
 #### Interactive mode
 
