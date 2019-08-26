@@ -113,7 +113,7 @@ C:\rqmts>py -m rqmts -p "C:\test_proj\run.py"
 [+] Path where it can be found: C:\test_proj\requirements.txt
 
 ```
-<img alt="Rqmts logo" src="https://imgur.com/a/NqDLA3s" width="400"><br>
+
 
 #### Interactive mode
 
