@@ -9,7 +9,7 @@
 <p align="center">
 <b>Rqmts - Generate requirements.txt file for any project by analysing package imports</b><br><br>
     <img alt="Rqmts logo" src="https://i.imgur.com/czbQOUj.png" width="400"><br>
-<b>Click <a href="https://youtube.com/">here</a> to see the demo.<br>
+<b>Click <a href="#Usage">here</a> to see the demo.<br>
   Click <a href="https://github.com/0x48piraj/rqmts/wiki">here</a> for documentation.<br><br></b>
 </p>
 
@@ -63,102 +63,11 @@ pip3 install rqmts       (linux)
 
 #### Command-line Interface
 
-```
-C:\rqmts>py -m rqmts -h
-usage: __main__.py [-h] [-p FILE]
-
-.===================================================================.
-||      rqmts - Generate pip requirements.txt for any project      ||
-||                                                                 ||
-||                                                                 ||
-||                            ___                                  ||
-||                          .'   '.              requirements.txt  ||
-||                         / rqmts \           oOoOo.              ||
-||                        |    |    |       ,==|||||o.             ||
-||                         \  pip  /       _|| |||||o. pip         ||
-||                          '.___.'    _.-'^|| |||||               ||
-||                        __/_______.-'     '==rqmts               ||
-||                   _.-'` /                   """""               ||
-||                .-'     /   oOoOo.                               ||
-||                `-._   / ,==|||||o.                              ||
-||                    '-/._|| |||||o. python                       ||
-||                     /  ^|| |||||                                ||
-||                    /    '==rqmts                                ||
-||                   /________"""""                                ||
-||                   `\       `\                                   ||
-||                     \        `\                                 ||
-||                      \         `\                               ||
-||                      /           /                              ||
-||                     /           /                               ||
-||        @0x48piraj  /_____      /_____                           ||
-||                                                                 ||
-'==================================================================='
-
-Options:
-  -p FILE, --path FILE  Path of the Python script (inside quotation marks)
-
---REDACTED--
-C:\rqmts>py -m rqmts -p "C:\test_proj\run.py"
-
---REDATED--
-
-[!] System package found : string
-[!] System package found : time
-[!] System package found : random
-[!] System package found : os
-[!] System package found : re
-[+] Success: Parsed the dependencies correctly
-[*] Saving generated requirements.txt
-[+] Success: requirements.txt saved
-[+] Path where it can be found: C:\test_proj\requirements.txt
-
-```
-![ ](ezgif-3-9a572478638c.gif)
+![Commandline Demo](static/commandline-demo.gif)
 
 #### Interactive mode
 
-```
-C:\rqmts>py -m rqmts
-.===================================================================.
-||      rqmts - Generate pip requirements.txt for any project      ||
-||                                                                 ||
-||                                                                 ||
-||                            ___                                  ||
-||                          .'   '.              requirements.txt  ||
-||                         / rqmts \           oOoOo.              ||
-||                        |    |    |       ,==|||||o.             ||
-||                         \  pip  /       _|| |||||o. pip         ||
-||                          '.___.'    _.-'^|| |||||               ||
-||                        __/_______.-'     '==rqmts               ||
-||                   _.-'` /                   """""               ||
-||                .-'     /   oOoOo.                               ||
-||                `-._   / ,==|||||o.                              ||
-||                    '-/._|| |||||o. python                       ||
-||                     /  ^|| |||||                                ||
-||                    /    '==rqmts                                ||
-||                   /________"""""                                ||
-||                   `\       `\                                   ||
-||                     \        `\                                 ||
-||                      \         `\                               ||
-||                      /           /                              ||
-||                     /           /                               ||
-||        @0x48piraj  /_____      /_____                           ||
-||                                                                 ||
-'==================================================================='
-
-[*] Path not provided, invoking interactive mode ...
-[*] Enter the path of Python script
-    ----> C:\test_proj\run.py
-[!] System package found : random
-[!] System package found : os
-[!] System package found : re
-[!] System package found : time
-[!] System package found : string
-[+] Success: Parsed the dependencies correctly
-[*] Saving generated requirements.txt
-[+] Success: requirements.txt saved
-[+] Path where it can be found: C:\test_proj\requirements.txt
-```
+![Interactive Demo](static/interactive-demo.gif)
 
 ## Contribute
 
