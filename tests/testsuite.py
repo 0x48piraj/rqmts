@@ -34,7 +34,7 @@ class TestApp(unittest.TestCase):
             requirements_list.append(res)
         except Exception as e:
             pass
-       self.assertEqual(len(requirements_list), 7)
+       self.assertEqual(len(requirements_list), 8)
 
 def suite():
    """Test suite"""

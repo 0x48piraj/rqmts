@@ -112,10 +112,11 @@ def main():
 	        print(num + 1, module)
 	    print(style.RED('Quitting.') + style.RESET(''))
 	    sys.exit(0)
-
+	
+	"""Yes, we're not using https://github.com/jackmaney/python-stdlib-list"""
 	for name, data in zip(modules.keys(), modules.values()): # removing built-in modules from PARSED_PKG_LIST
 	    if "(built-in)" in str(data): # dirty, but reliable
-	        print(style.RED("[!] built-in package found :"), style.CYAN(style.UNDERLINE(name)) + style.RESET(''))
+	        print(style.RED("[!] System (built-in) package found :"), style.CYAN(style.UNDERLINE(name)) + style.RESET(''))
 	        try:
 	            PARSED_PKG_LIST.remove(name)
 	        except ValueError:
@@ -126,7 +127,8 @@ def main():
 	            PARSED_PKG_LIST.remove(name)
 	        except ValueError:
 	            pass
-
+	print("Total modules used in %s => %d" % (file_path, len(PARSED_PKG_LIST)))
+	print("Fetching versions ...")
 	for package in PARSED_PKG_LIST:
 	    try:
 	        # Unfortunately, fetch() can error out too as name in the package index is independent of the module name we import
@@ -135,7 +137,8 @@ def main():
 	        requirements_list.append(result)
 	    except Exception as e:
 	        print(e)
-
+	if len(requirements_list) != len(PARSED_PKG_LIST):
+	    print("Failed to extract all versions.")
 	print(style.GREEN("[+] Success: Parsed all the dependencies") + style.RESET(''))
 	print(style.YELLOW("[*] Saving generated ") + style.UNDERLINE("requirements.txt") + style.RESET(''))
 	try:
