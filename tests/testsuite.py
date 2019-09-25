@@ -13,11 +13,19 @@ class TestApp(unittest.TestCase):
        """This runs before the test cases are executed"""
 
    def test_0001(self):
+       """Test module parsing"""
+       script = open('test.py', 'r').read()
+       result = parse(script)
+       print("\n======================================================================\n")
+       [print(num+1, module) for num, module in enumerate(result)]
+       print("\n======================================================================\n")
+       self.assertEqual(len(result), 16)
+       
+   def test_0002(self):
        """Test module parsing and version, pkg fetching functions"""
        script = open('test.py', 'r').read()
        result = parse(script)
-       print("\n======================================================================\n", "\n".join(result), "\n======================================================================\n", sep="")
-       self.assertEqual(len(result), 15)
+       self.assertEqual(len(result), 16)
        requirements_list = []
        for i in result:
         try:
@@ -27,7 +35,7 @@ class TestApp(unittest.TestCase):
         except Exception as e:
             pass
        self.assertEqual(len(requirements_list), 7)
-       
+
 def suite():
    """Test suite"""
    suite = unittest.TestSuite()
