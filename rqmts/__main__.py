@@ -99,7 +99,7 @@ def main():
 	    REQS_PATH = dir_path + "\\requirements.txt"
 	PARSED_PKG_LIST = parse(code)
 	modules, errors = _import(PARSED_PKG_LIST)
-	if len(PARSED_PKG_LIST) != len(modules):
+	if len(PARSED_PKG_LIST) != len(modules) or len(errors) != 0:
 	    ERROR_MSG = (
                 '\n\n'
                 'Some modules were not successfully imported, and it means either of the two things :\n'
@@ -112,6 +112,21 @@ def main():
 	        print(num + 1, module)
 	    print(style.RED('Quitting.') + style.RESET(''))
 	    sys.exit(0)
+
+	for name, data in zip(modules.keys(), modules.values()): # removing built-in modules from PARSED_PKG_LIST
+	    if "(built-in)" in str(data): # dirty, but reliable
+	        print(style.RED("[!] built-in package found :"), style.CYAN(style.UNDERLINE(name)) + style.RESET(''))
+	        try:
+	            PARSED_PKG_LIST.remove(name)
+	        except ValueError:
+	            pass
+	    elif "\\lib\\" in str(data):
+	        print(style.RED("[!] Library package found :"), style.CYAN(style.UNDERLINE(name)) + style.RESET(''))
+	        try:
+	            PARSED_PKG_LIST.remove(name)
+	        except ValueError:
+	            pass
+
 	for package in PARSED_PKG_LIST:
 	    try:
 	        # Unfortunately, fetch() can error out too as name in the package index is independent of the module name we import
@@ -119,16 +134,10 @@ def main():
 	        result = pkg_name + '==' + version
 	        requirements_list.append(result)
 	    except Exception as e:
-	        if e.__class__.__name__ == "ModuleNotFoundError":
-	            print("[!] ERROR: {} !(valid || installed)".format(package))
-	        elif e.__class__.__name__ == "DistributionNotFound":
-	            # hacky patch
-	            # pkg_name, version = fetch(dir(package)[0]) # works on pymouse, strgen
-	            print(style.RED("[!] System package found :"), style.CYAN(style.UNDERLINE(package)) + style.RESET(''))
+	        print(e)
 
 	print(style.GREEN("[+] Success: Parsed all the dependencies") + style.RESET(''))
 	print(style.YELLOW("[*] Saving generated ") + style.UNDERLINE("requirements.txt") + style.RESET(''))
-
 	try:
 	    with open(REQS_PATH, 'w') as g:
 	        for req in requirements_list:
