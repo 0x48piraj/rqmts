@@ -6,12 +6,13 @@ from collections import defaultdict
 
 def _import(imports):
  modules = {}
+ errors = []
  for module in imports:
     try:
         modules[module] = __import__(module)
     except ImportError:
-        print ("Error importing", module)
- return modules
+        errors.append(module)
+ return modules, errors
 
 def fetch(package):
  return pkg_resources.get_distribution(package).project_name, pkg_resources.get_distribution(package).version

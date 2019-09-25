@@ -13,7 +13,7 @@ class TestApp(unittest.TestCase):
        """This runs before the test cases are executed"""
 
    def test_0001(self):
-       """Test module parsing"""
+       """Test module parsing function"""
        script = open('test.py', 'r').read()
        result = parse(script)
        print("\n======================================================================\n")
@@ -22,7 +22,7 @@ class TestApp(unittest.TestCase):
        self.assertEqual(len(result), 16)
        
    def test_0002(self):
-       """Test module parsing and version, pkg fetching functions"""
+       """Test module package version fetching function"""
        script = open('test.py', 'r').read()
        result = parse(script)
        self.assertEqual(len(result), 16)

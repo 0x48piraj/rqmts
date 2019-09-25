@@ -93,9 +93,25 @@ def main():
 	 sys.exit(1)
 
 	requirements_list = []
-	REQS_PATH = dir_path + "\\requirements.txt"
+	if dir_path == '': # bad code
+	    REQS_PATH = "requirements.txt"
+	else:
+	    REQS_PATH = dir_path + "\\requirements.txt"
 	PARSED_PKG_LIST = parse(code)
-	modules = _import(PARSED_PKG_LIST) # must run w/o errors or you've some fucked up imports
+	modules, errors = _import(PARSED_PKG_LIST)
+	if len(PARSED_PKG_LIST) != len(modules):
+	    ERROR_MSG = (
+                '\n\n'
+                'Some modules were not successfully imported, and it means either of the two things :\n'
+                '1. No such module(s) (just ignore this warning then)\n'
+                '2. Module(s) not found in your system. (pip install <module-name>)'
+            )
+	    print(style.YELLOW(ERROR_MSG) + style.RESET(''))
+	    print(style.YELLOW('There seems to be discrepancies in following module(s) :') + style.RESET(''))
+	    for num, module in enumerate(errors):
+	        print(num + 1, module)
+	    print(style.RED('Quitting.') + style.RESET(''))
+	    sys.exit(0)
 	for package in PARSED_PKG_LIST:
 	    try:
 	        # Unfortunately, fetch() can error out too as name in the package index is independent of the module name we import
@@ -113,11 +129,14 @@ def main():
 	print(style.GREEN("[+] Success: Parsed all the dependencies") + style.RESET(''))
 	print(style.YELLOW("[*] Saving generated ") + style.UNDERLINE("requirements.txt") + style.RESET(''))
 
-	with open(REQS_PATH, 'w') as g:
-	    for req in requirements_list:
-	        g.write(req + '\n')
-	    g.close()
-
+	try:
+	    with open(REQS_PATH, 'w') as g:
+	        for req in requirements_list:
+	            g.write(req + '\n')
+	        g.close()
+	except PermissionError:
+		print(style.RED('Quitting. No permission to write on {}'.format(REQS_PATH)) + style.RESET(''))
+		sys.exit(0)
 	print(style.GREEN("[+] Success: ") + style.GREEN(style.UNDERLINE("requirements.txt")) + style.RESET('') + style.GREEN(" saved") + style.RESET(''))
 	print(style.GREEN("[+] Path where it can be found: %s") % (style.GREEN(style.UNDERLINE(REQS_PATH))) + style.RESET(''))
 
