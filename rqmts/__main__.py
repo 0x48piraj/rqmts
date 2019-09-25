@@ -68,12 +68,16 @@ def main():
 
 	file_path = parser.parse_args().path
 	print(style.GREEN(banner) + style.RESET(''))
-	if file_path == False:
-	    print(style.YELLOW("[*] Path not provided, invoking interactive mode ..."))
-	    print("[*] Enter the path of Python script" + style.RESET(''))
-	    file_path = input(style.GREEN("    ----> ") + style.RESET('')).strip()
-	else:
-	    file_path = file_path.strip()
+	try:
+	    if file_path == False:
+	        print(style.YELLOW("[*] Path not provided, invoking interactive mode ..."))
+	        print("[*] Enter the path of Python script" + style.RESET(''))
+	        file_path = input(style.GREEN("    ----> ") + style.RESET('')).strip()
+	    else:
+	        file_path = file_path.strip()
+	except KeyboardInterrupt:
+	    print('Interrupted.')
+	    sys.exit(0) # http://tldp.org/LDP/abs/html/exitcodes.html#EXITCODESREF
 
 	if os.path.exists(file_path):
 	 dir_path = os.path.dirname(file_path)

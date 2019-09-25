@@ -10,12 +10,13 @@ class TestApp(unittest.TestCase):
    """Test the parse(), fetch() function"""
 
    def setup(self):
-       "This runs before the test cases are executed"
+       """This runs before the test cases are executed"""
 
    def test_0001(self):
-       "Test module parsing and version, pkg fetching functions"
+       """Test module parsing and version, pkg fetching functions"""
        script = open('test.py', 'r').read()
        result = parse(script)
+       print("\n======================================================================\n", "\n".join(result), "\n======================================================================\n", sep="")
        self.assertEqual(len(result), 15)
        requirements_list = []
        for i in result:
@@ -28,7 +29,7 @@ class TestApp(unittest.TestCase):
        self.assertEqual(len(requirements_list), 7)
        
 def suite():
-   "Test suite"
+   """Test suite"""
    suite = unittest.TestSuite()
    suite.addTests(
        unittest.TestLoader().loadTestsFromTestCase(TestApp)
