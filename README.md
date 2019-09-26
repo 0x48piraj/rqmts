@@ -94,7 +94,7 @@ Again, if you have any issues or suggestions/patches, please do not hesitate to 
 
 This project uses [unittest](https://docs.python.org/2/library/unittest.html).
 
-> The Python unit testing framework, sometimes referred to as “PyUnit,” is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.
+> The Python unit testing framework, sometimes referred to as "PyUnit," is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.
 
 You may need to install the package (rqmts) for setup beforehand, using
 
