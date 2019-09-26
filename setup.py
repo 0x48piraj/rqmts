@@ -15,7 +15,7 @@ with open(os.path.join(pwd, "README.md")) as f:
 # call to setup()
 setup(
     name="rqmts",
-    version="2.0.1",
+    version="2.0.2",
     description="Generates pip requirements.txt file for any project by analysing package imports",
     long_description=README,
     long_description_content_type="text/markdown",

@@ -127,8 +127,8 @@ def main():
 	            PARSED_PKG_LIST.remove(name)
 	        except ValueError:
 	            pass
-	print("Total modules used in %s => %d" % (file_path, len(PARSED_PKG_LIST)))
-	print("Fetching versions ...")
+	print(style.YELLOW("[#] Total modules used in %s => %d" % (style.CYAN(style.UNDERLINE(file_path)) + style.RESET(''), len(PARSED_PKG_LIST))) + style.RESET(''))
+	print(style.YELLOW("[*] Fetching versions ...") + style.RESET(''))
 	for package in PARSED_PKG_LIST:
 	    try:
 	        # Unfortunately, fetch() can error out too as name in the package index is independent of the module name we import
@@ -138,7 +138,7 @@ def main():
 	    except Exception as e:
 	        print(e)
 	if len(requirements_list) != len(PARSED_PKG_LIST):
-	    print("Failed to extract all versions.")
+	    print(style.RED("[!] Failed to extract all versions.") + style.RESET(''))
 	print(style.GREEN("[+] Success: Parsed all the dependencies") + style.RESET(''))
 	print(style.YELLOW("[*] Saving generated ") + style.UNDERLINE("requirements.txt") + style.RESET(''))
 	try:
