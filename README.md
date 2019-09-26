@@ -69,11 +69,9 @@ pip3 install rqmts       (linux)
 
 ![Interactive Demo](static/interactive-demo.gif)
 
-## Contribute
+#### Challenges
 
 The major challenge of this project is to extract the required metadata from modules which are first extracted from the input script.
-
-#### Challenges
 
 - **Version numbers in python can be in very different places depending on the case**
 - **Package name in the package index is independent of the module name we import**
@@ -86,7 +84,31 @@ and these quirks make this project interesting. There's a funny comment in the s
 
 This project aims to combine the best existing strategies to cover the broadest possible set of cases _(if not all)_. The project was built keeping in mind the modular programming paradigms and so other than being readable it's easily extensible making it possible to add new strategies/algorithms quickly.
 
-If you have any issues or suggestions, please do not hesitate to **[open an issue](https://github.com/0x48piraj/rqmts/issues/new)** or a **[pull request](https://github.com/0x48piraj/rqmts/pulls)**!
+## Contribute
+
+All patches are Welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for further details. For discussions, create a [new issue](https://github.com/0x48piraj/rqmts/issues/new) or ping me over [Twitter](https://twitter.com/0x48piraj)
+
+Again, if you have any issues or suggestions/patches, please do not hesitate to **[open an issue](https://github.com/0x48piraj/rqmts/issues/new)** or a **[pull request](https://github.com/0x48piraj/rqmts/pulls)**!
+
+## Running the tests
+
+This project uses [unittest](https://docs.python.org/2/library/unittest.html).
+
+> The Python unit testing framework, sometimes referred to as “PyUnit,” is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.
+
+You may need to install the package (rqmts) for setup beforehand, using
+
+```
+pip install --user rqmts
+```
+
+All tests are encapsulated in one single script named `testsuite.py` and all the respective test-cases are under `tests/testcases/`
+
+For getting started,
+
+```
+python tests/testsuite.py
+```
 
 ## License
 
