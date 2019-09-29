@@ -63,11 +63,11 @@ pip3 install rqmts       (linux)
 
 #### Command-line Interface
 
-![Commandline Demo](static/commandline-demo.gif)
+![Commandline Demo](https://github.com/0x48piraj/rqmts/raw/master/static/commandline-demo.gif)
 
 #### Interactive mode
 
-![Interactive Demo](static/interactive-demo.gif)
+![Interactive Demo](https://github.com/0x48piraj/rqmts/raw/master/static/interactive-demo.gif)
 
 #### Challenges
 
