@@ -45,10 +45,7 @@ It does not requires any dependency (works out-of-the-box), not needs internet t
 
 Use **pip** to install [rqmts](https://pypi.org/project/rqmts/). This is the **recommended way of running Rqmts**.
 
-```
-pip install --user rqmts (windows)
-pip3 install rqmts       (linux)
-```
+![Installation Guide](https://github.com/0x48piraj/rqmts/raw/master/static/installation-guide.gif)
 
 **Rqmts** also provides a script that will run a **rqmts instance** isolated from the rest of your system by using file-less/memory-based execution.
 
@@ -60,13 +57,9 @@ Alternatively, you can download `Rqmts.py` from the root directory and execute i
 
 ## Usage
 
-#### Command-line Interface
+#### Command-line Interface and Interactive mode
 
-![Commandline Demo](https://github.com/0x48piraj/rqmts/raw/master/static/commandline-demo.gif)
-
-#### Interactive mode
-
-![Interactive Demo](https://github.com/0x48piraj/rqmts/raw/master/static/interactive-demo.gif)
+![Usage Demo](https://github.com/0x48piraj/rqmts/raw/master/static/usage-demo.gif)
 
 #### Challenges
 
@@ -82,6 +75,10 @@ and these quirks make this project interesting. There's a funny comment in the s
 ```
 
 This project aims to combine the best existing strategies to cover the broadest possible set of cases _(if not all)_. The project was built keeping in mind the modular programming paradigms and so other than being readable it's easily extensible making it possible to add new strategies/algorithms quickly.
+
+## Changelog
+
+Playing with different versions? Read the **[Changelog](CHANGELOG.md)**.
 
 ## Contribute
 
