@@ -23,41 +23,40 @@ It does not requires any dependency (works out-of-the-box), not needs internet t
 
 ### Questions
 
-- **Why not just use pip's freeze command** to generate a `requirements.txt` file for my project ?
-- Why to **re-invent the wheel** when there are modules such as **pipreqs**, **pigar**, **poetry** already present ?
-- Why not manually ?
+- **Why not just use pip's freeze command** to generate a `requirements.txt` file for my project?
+- Why to **re-invent the wheel** when there are modules such as **pipreqs**, **pigar**, **poetry** already present?
+- Why not manually?
 
 ### Answers
 
 * **Why not just pip freeze?**
    * ``pip freeze`` only saves the packages that are installed with ``pip install`` in your environment. 
    * ``pip freeze`` saves all packages in the environment including those that you don't use in your current project. _(if you don't have virtualenv)_
-* Why **re-invent the wheel** ?
+* Why **re-invent the wheel** (?)
    * **pipreqs** fails on many occasions _(see - [pipreqs/issues](https://github.com/bndr/pipreqs/issues))_
-   * I found this repository and thought, _"Hmm.. I think I can simply this problem while trying to match **pipreqs** results"_
-   * **pigar** queries pypi servers, big no-no. Ideally, it should be local. _(on fallback? then maybe ..)_
-   * Other than that, **pigar** recommends using Pipenv ([pipenv has serious issues](https://news.ycombinator.com/item?id=18612590))
+   * **pigar** queries pypi servers, big no-no. Ideally, it should be local, on fallback? then maybe. Other than that, **pigar** recommends using Pipenv ([pipenv has serious issues](https://news.ycombinator.com/item?id=18612590))
    * **poetry** quotes "Be aware, however, that it will also install poetry's dependencies which might cause conflicts."
    * Sheer curiousity. _"can I create a project that has potential of collecting thosands of stars and most importantly, hundreds of contributors?"_
-* Manually ?
-   * _Are you serious right now ?_
+* Manually?
+   * _Are you serious right now?_
 
 ## Installation
 
-**Rqmts** provides a custom script that will run a **rqmts instance** isolated from the rest of your system by using file-less/memory-based execution. This is the recommended way of running Rqmts.
+
+Use **pip** to install [rqmts](https://pypi.org/project/rqmts/). This is the **recommended way of running Rqmts**.
+
+```
+pip install --user rqmts (windows)
+pip3 install rqmts       (linux)
+```
+
+**Rqmts** also provides a script that will run a **rqmts instance** isolated from the rest of your system by using file-less/memory-based execution.
 
 ```
 curl -sSL https://raw.githubusercontent.com/0x48piraj/rqmts/master/Rqmts.py | python
 ```
 
 Alternatively, you can download `Rqmts.py` from the root directory and execute it separately.
-
-Using **pip** to install [rqmts](https://pypi.org/project/rqmts/) is also possible.
-
-```
-pip install --user rqmts (windows)
-pip3 install rqmts       (linux)
-```
 
 ## Usage
 

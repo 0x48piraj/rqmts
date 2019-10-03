@@ -127,7 +127,7 @@ def main():
 	            PARSED_PKG_LIST.remove(name)
 	        except ValueError:
 	            pass
-	print(style.YELLOW("[#] Total modules used in %s => %d" % (style.CYAN(style.UNDERLINE(file_path)) + style.RESET(''), len(PARSED_PKG_LIST))) + style.RESET(''))
+	print(style.YELLOW("[+] Total modules used in %s => %d" % (style.CYAN(style.UNDERLINE(file_path)) + style.RESET(''), len(PARSED_PKG_LIST))) + style.RESET(''))
 	print(style.YELLOW("[*] Fetching versions ...") + style.RESET(''))
 	for package in PARSED_PKG_LIST:
 	    try:
@@ -145,6 +145,9 @@ def main():
 	    with open(REQS_PATH, 'w') as g:
 	        for req in requirements_list:
 	            g.write(req + '\n')
+	        # tell() gives current byte number in the file, we subtract one, truncate it to remove the trailing newline
+	        g.truncate(g.tell() - len(os.linesep))
+	        # On Linux and MacOS, the -1 is correct, on Windows it needs to be -2. Pythonic method, using os.linesep
 	        g.close()
 	except PermissionError:
 		print(style.RED('Quitting. No permission to write on {}'.format(REQS_PATH)) + style.RESET(''))
