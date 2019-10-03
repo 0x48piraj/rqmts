@@ -9,7 +9,8 @@ All notable changes to this project will be documented in this file. The format 
 - Improved parsing sub-routine
 - Improved project documentation
 - New demonstration GIFs (Usage and Installation guide)
-- New method for version detection via searching `__version__` file using AST (Abstract Syntax Trees). This method works on Python > 3.4 as `importlib.util.find_spec` is not available in Python < 3.4
+- New method for version detection via searching `__version__` file using AST (Abstract Syntax Trees). Works on Python > 3.4 as `importlib.util.find_spec` is not available in Python < 3.4
+- `--verbose` flag for extended output
 
 ### Changed
 

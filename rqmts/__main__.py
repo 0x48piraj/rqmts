@@ -65,7 +65,9 @@ def main():
 	optional = parser._action_groups.pop() # popped opt args
 	optional = parser.add_argument_group('Options')
 	optional.add_argument("-p", "--path", dest="path", metavar=style.CYAN("'/path/to/file'") + style.RESET(''), default=False, help= style.GREEN("Python script path (inside quotation marks)") + style.RESET(''))
+	optional.add_argument("-v", "--verbose", dest="verbose", action='store_true', help= style.GREEN("Verbose output") + style.RESET(''))
 
+	verbose = parser.parse_args().verbose
 	file_path = parser.parse_args().path
 	print(style.GREEN(banner) + style.RESET(''))
 	try:
@@ -136,7 +138,9 @@ def main():
 	        result = pkg_name + '==' + version
 	        requirements_list.append(result)
 	    except Exception as e:
-	        print(e)
+	        print(style.RED("Couldn't find version of {}".format(style.UNDERLINE(package) + style.RESET(''))) + style.RESET(''))
+	        if verbose:
+	            print(style.RED("[Verbose] Error: {}".format(e)) + style.RESET(''))
 	if len(requirements_list) != len(PARSED_PKG_LIST):
 	    print(style.RED("[!] Failed to extract all versions.") + style.RESET(''))
 	print(style.GREEN("[+] Success: Parsed all the dependencies") + style.RESET(''))
