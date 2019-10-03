@@ -33,32 +33,34 @@ def main():
 	        RESET = ""
 
 	banner = textwrap.dedent('''\
-	    .===================================================================.
-	    ||      rqmts - Generate pip requirements.txt for any project      ||
-	    ||                                                                 ||
-	    ||                                                                 ||
-	    ||                            ___                                  ||
-	    ||                          .'   '.              requirements.txt  ||
-	    ||                         / rqmts \           oOoOo.              ||
-	    ||                        |    |    |       ,==|||||o.             ||
-	    ||                         \  pip  /       _|| |||||o. pip         ||
-	    ||                          '.___.'    _.-'^|| |||||               ||
-	    ||                        __/_______.-'     '==rqmts               ||
-	    ||                   _.-'` /                   """""               ||
-	    ||                .-'     /   oOoOo.                               ||
-	    ||                `-._   / ,==|||||o.                              ||
-	    ||                    '-/._|| |||||o. python                       ||
-	    ||                     /  ^|| |||||                                ||
-	    ||                    /    '==rqmts                                ||
-	    ||                   /________"""""                                ||
-	    ||                   `\       `\                                   ||
-	    ||                     \        `\                                 ||
-	    ||                      \         `\                               ||
-	    ||                      /           /                              ||
-	    ||                     /           /                               ||
-	    ||     [>] @0x48piraj /_____      /_____                           ||
-	    ||                                                                 ||
-	    '==================================================================='
+    
+    
+    
+    
+    
+RRRRRRRRRRRRRRRRR        QQQQQQQQQ     MMMMMMMM               MMMMMMMMTTTTTTTTTTTTTTTTTTTTTTT   SSSSSSSSSSSSSSS      
+R::::::::::::::::R     QQ:::::::::QQ   M:::::::M             M:::::::MT:::::::::::::::::::::T SS:::::::::::::::S     
+R::::::RRRRRR:::::R  QQ:::::::::::::QQ M::::::::M           M::::::::MT:::::::::::::::::::::TS:::::SSSSSS::::::S     
+RR:::::R     R:::::RQ:::::::QQQ:::::::QM:::::::::M         M:::::::::MT:::::TT:::::::TT:::::TS:::::S     SSSSSSS     
+  R::::R     R:::::RQ::::::O   Q::::::QM::::::::::M       M::::::::::MTTTTTT  T:::::T  TTTTTTS:::::S                 
+  R::::R     R:::::RQ:::::O     Q:::::QM:::::::::::M     M:::::::::::M        T:::::T        S:::::S                 
+  R::::RRRRRR:::::R Q:::::O     Q:::::QM:::::::M::::M   M::::M:::::::M        T:::::T         S::::SSSS              
+  R:::::::::::::RR  Q:::::O     Q:::::QM::::::M M::::M M::::M M::::::M        T:::::T          SS::::::SSSSS         
+  R::::RRRRRR:::::R Q:::::O     Q:::::QM::::::M  M::::M::::M  M::::::M        T:::::T            SSS::::::::SS       
+  R::::R     R:::::RQ:::::O     Q:::::QM::::::M   M:::::::M   M::::::M        T:::::T               SSSSSS::::S      
+  R::::R     R:::::RQ:::::O  QQQQ:::::QM::::::M    M:::::M    M::::::M        T:::::T                    S:::::S     
+  R::::R     R:::::RQ::::::O Q::::::::QM::::::M     MMMMM     M::::::M        T:::::T                    S:::::S     
+RR:::::R     R:::::RQ:::::::QQ::::::::QM::::::M               M::::::M      TT:::::::TT      SSSSSSS     S:::::S     
+R::::::R     R:::::R QQ::::::::::::::Q M::::::M               M::::::M      T:::::::::T      S::::::SSSSSS:::::S     
+R::::::R     R:::::R   QQ:::::::::::Q  M::::::M               M::::::M      T:::::::::T      S:::::::::::::::SS      
+RRRRRRRR     RRRRRRR     QQQQQQQQ::::QQMMMMMMMM               MMMMMMMM      TTTTTTTTTTT       SSSSSSSSSSSSSSS        
+                                 Q:::::Q                                                                             
+                                  QQQQQQ                                                                             
+                                                                                                                     
+                                                                                                                     
+                                                                                                                     
+                                                                                                                     
+                                   
 	    ''')
 
 	parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=style.GREEN(banner) + style.RESET(''), usage=style.GREEN("rqmts ") + style.YELLOW("[-h] [-p '{}']").format(style.UNDERLINE("/path/to/file") + style.RESET('') + style.YELLOW('')) + style.RESET(''))
