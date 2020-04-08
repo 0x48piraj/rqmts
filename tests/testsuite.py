@@ -14,7 +14,7 @@ class TestApp(unittest.TestCase):
 
    def test_0001(self):
        """Test module parsing function"""
-       script = open('testcases/test.py', 'r').read()
+       script = open('testcases/test_1.py', 'r').read()
        result = parse(script)
        print("\n======================================================================\n")
        [print(num+1, module) for num, module in enumerate(result)]
@@ -23,7 +23,7 @@ class TestApp(unittest.TestCase):
        
    def test_0002(self):
        """Test module package version fetching function"""
-       script = open('testcases/test.py', 'r').read()
+       script = open('testcases/test_1.py', 'r').read()
        result = parse(script)
        self.assertEqual(len(result), 16)
        requirements_list = []

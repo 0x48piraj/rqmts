@@ -23,7 +23,7 @@ def find_version(PKG_DIR):
     Reference: https://stackoverflow.com/a/42269185/
     """
     file_path = importlib.util.find_spec(PKG_DIR).origin
-    with open(file_path) as file_obj:
+    with open(file_path, encoding="latin-1") as file_obj:
         root_node = ast.parse(file_obj.read())
     for node in ast.walk(root_node):
         if isinstance(node, ast.Assign):
@@ -143,7 +143,7 @@ if dir_path == '': # bad code
     REQS_PATH = "requirements.txt"
 else:
     REQS_PATH = dir_path + "\\requirements.txt"
-PARSED_PKG_LIST = parse(code)
+PARSED_PKG_LIST = set(parse(code))
 modules, errors = _import(PARSED_PKG_LIST)
 if len(PARSED_PKG_LIST) != len(modules) or len(errors) != 0:
     ERROR_MSG = (
